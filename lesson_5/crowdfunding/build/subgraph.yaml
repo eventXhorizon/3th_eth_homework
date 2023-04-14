@@ -1,0 +1,28 @@
+specVersion: 0.0.4
+description: Gravatar for Ethereum
+repository: https://github.com/graphprotocol/example-subgraph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CrowdFunding
+    network: goerli
+    source:
+      address: "0xbe725842ebd876c4adf7543f7b65aaaf7898c7ac"
+      abi: CrowdFunding
+      startBlock: 8827358
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Campaign
+      abis:
+        - name: CrowdFunding
+          file: CrowdFunding/abis/CrowdFunding.json
+      eventHandlers:
+        - event: CampaignLog(uint256,address,uint256)
+          handler: handleCampaignLog
+        - event: BidLog(uint256,address)
+          handler: handleBidLog
+      file: CrowdFunding/CrowdFunding.wasm

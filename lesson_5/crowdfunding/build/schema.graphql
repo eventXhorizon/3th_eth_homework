@@ -1,0 +1,10 @@
+type Campaign @entity {
+  id: ID!
+  receiver: Bytes!
+  goal: BigInt!
+}
+
+type Bid @entity {
+  id: ID!
+  sender: Bytes!
+}
