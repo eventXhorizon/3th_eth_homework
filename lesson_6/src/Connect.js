@@ -102,14 +102,6 @@ class Connect extends Component {
             }
             web3 = new Web3(window.ethereum);
 
-            // 注意！！用第三方RPC设置Provider，会有问题！！！
-            // let url = "https://rinkeby.arbitrum.io/rpc/v2/G2lEKP9b2qIfytX1kU2vlONGsEfPcbi8";
-            // let url = "https://rinkeby.arbitrum.io/rpc";
-            // let url = "https://rinkeby.infura.io/v3/40f127edbf584c39b4b88ca58ea37905";
-            // let url = 'https://arb-rinkeby.g.alchemy.com/v2/7hZb2UbpcUWeYZD2G0GpkZAbh9Ule0M8';
-            // web3 = new Web3(new Web3.providers.HttpProvider(url));
-
-
             this.state.web3 = web3;
 
             console.log('web3: ', web3)
@@ -238,60 +230,6 @@ class Connect extends Component {
             gasPrice,
             "gwei"      // 1后面9个0，把单位传进来，配合fromWei，把decimal去掉
         );
-
-
-        // 注意！！！下面这些操作有问题，不推荐使用
-        // let signedTransaction = await web3.eth.accounts.signTransaction(JSON.stringify(rawTransaction), privKey);
-        // console.log('signedTransaction', signedTransaction);
-        // web3.eth.sendSignedTransaction('0x' + signedTransaction).on('transactionHash', function(hash) {
-        //     console.log('txHash: ', hash);
-        //     document.getElementById("tx_hash").innerText = hash;
-        // });
-
-
-        // let Tx = require('ethereumjs-tx').Transaction;
-        // const Common = require('ethereumjs-common').default;
-        // const arbTestChain = Common.forCustomChain(
-        //     'mainnet',
-        //     {
-        //         name:"Arbitrum",
-        //         networkId: 421611,
-        //         chainId: 421611
-        //     },
-        //     'istanbul'
-        // )
-        // const tx = new Tx(rawTransaction, {common: arbTestChain});
-
-
-        // ----------------
-
-
-        // let privateKey = Buffer.from(privKey, 'hex');
-        // console.log('privateKey_Hex: ', privateKey);
-
-        // let signedTransaction = await web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-        // let signedTransaction = await web3.eth.signTransaction(rawTransaction, this.state.account_address);
-        //
-        // // console.log('signedTransaction: ', signedTransaction);
-        // let tx = new Tx(signedTransaction);
-        // tx.sign(privateKey);
-        //
-        // let serializedTx = tx.serialize();
-        // console.log(serializedTx.toString('hex'));
-        //
-        // await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'))
-        //     .on('receipt', console.log);
-
-
-        // let Tx = require('ethereumjs-tx').Transaction;
-        // // let tx = new Tx(rawTransaction);
-        // let tx = new Tx(new Buffer(JSON.stringify(rawTransaction), 'hex'));
-        // let serializedTx = tx.serialize();
-        // // Comment out these four lines if you don't really want to send the TX right now
-        // console.log(`Attempting to send signed tx:  ${serializedTx.toString('hex')}\n------------------------`);
-        // let receipt = await web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'));
-        // // // The receipt info of transaction, Uncomment for debug
-        // console.log(`Receipt info: \n${JSON.stringify(receipt, null, '\t')}\n------------------------`);
     }
 }
 

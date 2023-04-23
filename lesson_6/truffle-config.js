@@ -67,20 +67,6 @@ module.exports = {
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
 
-
-  //   arbitrum: {
-  //     provider: function() {
-  //       return new HDWalletProvider(privKey, 'https://arb-goerli.g.alchemy.com/v2/XF514bfP60UOyLzv0RZkEFdCTOGL8Dnw')
-  //     },
-  //     gas: 1000000000,
-  //     gasPrice: 20000000,
-  //     // network_id: 421611,
-  //     network_id: 421613,
-  //     networkCheckTimeout: 1000000000,
-  //     timeoutBlocks: 100000
-  //   }
-  // },
-
     goerli: {
       provider: function() {
         return new HDWalletProvider(privKey, 'https://eth-goerli.g.alchemy.com/v2/YZ0K7sg1DEyIQdoBFv5BWly5MbR-_2YF')
